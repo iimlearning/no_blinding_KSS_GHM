@@ -61,6 +61,15 @@ class Trainer(object):
         bert_params = []
         not_bert_params = []
         
+        print("******************************************************")
+        for name, params in self.model.named_parameters():
+            if 'bert' in name:
+                bert_params += [name]
+            else:
+                print(name)
+                not_bert_params += [name]
+        print("******************************************************")
+        
         # Prepare optimizer and schedule (linear warmup and decay)
         no_decay = ["bias", "LayerNorm.weight"]
 
