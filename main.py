@@ -20,7 +20,7 @@ def main(args):
     test_dataset = load_and_cache_examples(args, tokenizer, mode="test")
     dev_dataset = load_and_cache_examples(args, tokenizer, mode="dev")
 
-    trainer = Trainer(args, train_dataset=train_dataset, test_dataset=dev_dataset, dev_dataset=test_dataset,tokenizer_length=len(tokenizer))
+    trainer = Trainer(args, train_dataset=train_dataset, test_dataset=test_dataset, dev_dataset=dev_dataset,tokenizer_length=len(tokenizer))
 
     if args.do_train:
         trainer.train()
